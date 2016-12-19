@@ -1,0 +1,661 @@
+******************************************************************************
+                  TI ARM Linker PC v15.12.1                    
+******************************************************************************
+>> Linked Wed Dec 14 22:23:39 2016
+
+OUTPUT FILE NAME:   <Quadcopter_Software_Port.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000042b1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00004838  0003b7c8  R  X
+  SRAM                  20000000   00008000  00000235  00007dcb  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000483c   0000483c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    000042b8   000042b8    r-x .text
+  00004528    00004528    000002c8   000002c8    r-- .const
+  000047f0    000047f0    0000004c   0000004c    r-- .cinit
+20000000    20000000    00000238   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000029   00000000    rw- .data
+  2000022c    2000022c    00000004   00000000    rw- .bss
+  20000230    20000230    00000008   00000000    rw- .sysmem
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    000042b8     
+                  0000026c    000009ac     rtsv7M4_T_le_v4SPD16_eabi.lib : e_pow.obj (.text)
+                  00000c18    000006c4     main.obj (.text)
+                  000012dc    0000064c     Sensor.obj (.text)
+                  00001928    00000548     Actuators.obj (.text)
+                  00001e70    000004fc     ControlSystem.obj (.text)
+                  0000236c    000004dc     Filter.obj (.text)
+                  00002848    00000498     Communication.obj (.text)
+                  00002ce0    000003dc     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.text)
+                  000030bc    000002ec                                   : s_atan.obj (.text)
+                  000033a8    000001ec                                   : e_atan2.obj (.text)
+                  00003594    000001b6                                   : fd_add_t2.obj (.text)
+                  0000374a    00000002                                   : mpu_init.obj (.text)
+                  0000374c    00000170                                   : e_sqrt.obj (.text)
+                  000038bc    00000136                                   : fd_div_t2.obj (.text)
+                  000039f2    000000fc                                   : fd_mul_t2.obj (.text)
+                  00003aee    00000002                                   : startup.obj (.text)
+                  00003af0    000000fc                                   : s_scalbn.obj (.text)
+                  00003bec    000000f0     driverlib.lib : sysctl.obj (.text:SysCtlClockSet)
+                  00003cdc    000000bc     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.text)
+                  00003d98    000000b4                                   : s_cosf.obj (.text)
+                  00003e4c    000000a4                                   : s_sinf.obj (.text)
+                  00003ef0    0000009c                                   : memcpy_t2.obj (.text)
+                  00003f8c    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  00004012    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  00004098    0000007a                                   : memset_t2.obj (.text)
+                  00004112    00000002     --HOLE-- [fill = 0]
+                  00004114    00000070                                   : autoinit.obj (.text)
+                  00004184    0000006e                                   : fd_tos_t2.obj (.text)
+                  000041f2    0000006a                                   : copy_decompress_rle.obj (.text)
+                  0000425c    00000054     Timer.obj (.text)
+                  000042b0    00000054     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00004304    00000054                                   : exit.obj (.text)
+                  00004358    0000004c                                   : cpy_tbl.obj (.text)
+                  000043a4    00000048                                   : fd_toi_t2.obj (.text)
+                  000043ec    00000038                                   : fs_tod_t2.obj (.text)
+                  00004424    0000002e                                   : i_tofd_t2.obj (.text)
+                  00004452    00000002     --HOLE-- [fill = 0]
+                  00004454    00000018     Sensor.obj (.text:_ZN4GyroC1Ev)
+                  0000446c    00000018     Sensor.obj (.text:_ZN5AccelC1Ev)
+                  00004484    00000018     Sensor.obj (.text:_ZN6SensorC1Ev)
+                  0000449c    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  000044b4    00000014                                   : _lock.obj (.text)
+                  000044c8    00000014                                   : s_copysign.obj (.text)
+                  000044dc    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  000044ea    0000000c     Sensor.obj (.text:_ZN6SensorC2Ev)
+                  000044f6    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00004502    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : delete.obj (.text)
+                  0000450a    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00004510    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00004516    00000006                                   : pure_virt.obj (.text)
+                  0000451c    00000004                                   : error.obj (.text)
+                  00004520    00000004                                   : pre_init.obj (.text)
+
+.const     0    00004528    000002c8     
+                  00004528    00000098     rtsv7M4_T_le_v4SPD16_eabi.lib : s_atan.obj (.const:$O1$$)
+                  000045c0    00000030                                   : e_pow.obj (.const:$O1$$)
+                  000045f0    00000028                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv123__fundamental_type_infoE)
+                  00004618    00000025                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv120__si_class_type_infoE)
+                  0000463d    00000024                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv119__pointer_type_infoE)
+                  00004661    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__class_type_infoE)
+                  00004683    00000022                                   : typeinfo_.obj (.const:.typeinfo:_ZTSN10__cxxabiv117__pbase_type_infoE)
+                  000046a5    00000002                                   : typeinfo_.obj (.const:.typeinfo:_ZTSe)
+                  000046a7    00000001     --HOLE-- [fill = 0]
+                  000046a8    00000014     Sensor.obj (.const:_ZTV4Gyro)
+                  000046bc    00000014     Sensor.obj (.const:_ZTV5Accel)
+                  000046d0    00000014     Sensor.obj (.const:_ZTV5Magne)
+                  000046e4    00000014     Sensor.obj (.const:_ZTV6Sensor)
+                  000046f8    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTIPKe)
+                  00004708    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv117__class_type_infoE)
+                  00004718    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv119__pointer_type_infoE)
+                  00004728    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv120__si_class_type_infoE)
+                  00004738    00000010                                   : typeinfo_.obj (.const:_ZTVN10__cxxabiv123__fundamental_type_infoE)
+                  00004748    0000000d                                   : typeinfo_.obj (.const:.typeinfo:_ZTSSt9type_info)
+                  00004755    00000003     --HOLE-- [fill = 0]
+                  00004758    0000000c     Sensor.obj (.const:.typeinfo:_ZTI4Gyro)
+                  00004764    0000000c     Sensor.obj (.const:.typeinfo:_ZTI5Accel)
+                  00004770    0000000c     Sensor.obj (.const:.typeinfo:_ZTI5Magne)
+                  0000477c    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__class_type_infoE)
+                  00004788    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv117__pbase_type_infoE)
+                  00004794    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv119__pointer_type_infoE)
+                  000047a0    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv120__si_class_type_infoE)
+                  000047ac    0000000c                                   : typeinfo_.obj (.const:.typeinfo:_ZTIN10__cxxabiv123__fundamental_type_infoE)
+                  000047b8    00000008     Sensor.obj (.const:.typeinfo:_ZTI6Sensor)
+                  000047c0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTISt9type_info)
+                  000047c8    00000008                                   : typeinfo_.obj (.const:.typeinfo:_ZTIe)
+                  000047d0    00000008     Sensor.obj (.const:.typeinfo:_ZTS6Sensor)
+                  000047d8    00000007     Sensor.obj (.const:.typeinfo:_ZTS5Accel)
+                  000047df    00000007     Sensor.obj (.const:.typeinfo:_ZTS5Magne)
+                  000047e6    00000006     Sensor.obj (.const:.typeinfo:_ZTS4Gyro)
+                  000047ec    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : typeinfo_.obj (.const:.typeinfo:_ZTSPKe)
+
+.cinit     0    000047f0    0000004c     
+                  000047f0    00000022     (.cinit..data.load) [load image, compression = rle]
+                  00004812    00000006     --HOLE-- [fill = 0]
+                  00004818    00000009     (.cinit..bss.load) [load image, compression = rle]
+                  00004821    00000003     --HOLE-- [fill = 0]
+                  00004824    00000008     (__TI_handler_table)
+                  0000482c    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000200     --HOLE--
+
+.data      0    20000200    00000029     UNINITIALIZED
+                  20000200    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : exit.obj (.data:$O1$$)
+                  2000020c    0000000c                                   : memory.obj (.data:$O1$$)
+                  20000218    00000008                                   : _lock.obj (.data:$O1$$)
+                  20000220    00000004                                   : errno.obj (.data)
+                  20000224    00000004                                   : stkdepth_vars.obj (.data)
+                  20000228    00000001     main.obj (.data)
+
+.bss       0    2000022c    00000004     UNINITIALIZED
+                  2000022c    00000004     (.common:_ZSt16__dummy_typeinfo)
+
+.sysmem    0    20000230    00000008     UNINITIALIZED
+                  20000230    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+
+MODULE SUMMARY
+
+       Module                         code    ro data   rw data
+       ------                         ----    -------   -------
+    .\
+       Sensor.obj                     1696    152       0      
+       main.obj                       1732    0         1      
+       Actuators.obj                  1352    0         0      
+       ControlSystem.obj              1276    0         0      
+       Filter.obj                     1244    0         0      
+       Communication.obj              1176    0         0      
+       tm4c123gh6pm_startup_ccs.obj   12      620       0      
+       Timer.obj                      84      0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         8572    772       1      
+                                                               
+    H:/Programs/ti/TivaWare/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                     246     0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         246     0         0      
+                                                               
+    H:\Programs\ti\ccsv6\tools\compiler\ti-cgt-arm_15.12.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       e_pow.obj                      2476    48        0      
+       memory.obj                     988     0         12     
+       s_atan.obj                     748     152       0      
+       typeinfo_.obj                  188     356       4      
+       e_atan2.obj                    492     0         0      
+       fd_add_t2.obj                  438     0         0      
+       e_sqrt.obj                     368     0         0      
+       fd_div_t2.obj                  310     0         0      
+       fd_cmp_t2.obj                  268     0         0      
+       fd_mul_t2.obj                  252     0         0      
+       s_scalbn.obj                   252     0         0      
+       s_cosf.obj                     180     0         0      
+       s_sinf.obj                     164     0         0      
+       memcpy_t2.obj                  156     0         0      
+       memset_t2.obj                  122     0         0      
+       autoinit.obj                   112     0         0      
+       copy_decompress_rle.obj        112     0         0      
+       fd_tos_t2.obj                  110     0         0      
+       exit.obj                       84      0         12     
+       boot.obj                       84      0         0      
+       cpy_tbl.obj                    76      0         0      
+       fd_toi_t2.obj                  72      0         0      
+       fs_tod_t2.obj                  56      0         0      
+       i_tofd_t2.obj                  46      0         0      
+       _lock.obj                      20      0         8      
+       args_main.obj                  24      0         0      
+       s_copysign.obj                 20      0         0      
+       copy_decompress_none.obj       14      0         0      
+       delete.obj                     8       0         0      
+       pure_virt.obj                  6       0         0      
+       errno.obj                      0       0         4      
+       error.obj                      4       0         0      
+       pre_init.obj                   4       0         0      
+       stkdepth_vars.obj              0       0         4      
+       mpu_init.obj                   2       0         0      
+       startup.obj                    2       0         0      
+    +--+------------------------------+-------+---------+---------+
+       Total:                         8258    556       44     
+                                                               
+       Heap:                          0       0         8      
+       Stack:                         0       0         512    
+       Linker Generated:              0       67        0      
+    +--+------------------------------+-------+---------+---------+
+       Grand Total:                   17076   1395      565    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000482c records: 2, size/record: 8, table size: 16
+	.data: load addr=000047f0, load size=00000022 bytes, run addr=20000200, run size=00000029 bytes, compression=rle
+	.bss: load addr=00004818, load size=00000009 bytes, run addr=2000022c, run size=00000004 bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00004824 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                                            
+-------   ----                                                            
+00004305  C$$EXIT                                                         
+000044f7  ResetISR                                                        
+UNDEFED   SHT$$INIT_ARRAY$$Base                                           
+UNDEFED   SHT$$INIT_ARRAY$$Limit                                          
+00003bed  SysCtlClockSet                                                  
+0000450b  SysCtlDelay                                                     
+00000c19  UART1_Handler                                                   
+00003d89  _ZN10__cxxabiv116__enum_type_infoD0Ev                           
+00003d87  _ZN10__cxxabiv116__enum_type_infoD1Ev                           
+00003d87  _ZN10__cxxabiv116__enum_type_infoD2Ev                           
+00003d7f  _ZN10__cxxabiv117__array_type_infoD0Ev                          
+00003d7d  _ZN10__cxxabiv117__array_type_infoD1Ev                          
+00003d7d  _ZN10__cxxabiv117__array_type_infoD2Ev                          
+00003d75  _ZN10__cxxabiv117__class_type_infoD0Ev                          
+00003d73  _ZN10__cxxabiv117__class_type_infoD1Ev                          
+00003d73  _ZN10__cxxabiv117__class_type_infoD2Ev                          
+00003d6b  _ZN10__cxxabiv117__pbase_type_infoD0Ev                          
+00003d69  _ZN10__cxxabiv117__pbase_type_infoD1Ev                          
+00003d69  _ZN10__cxxabiv117__pbase_type_infoD2Ev                          
+00003d61  _ZN10__cxxabiv119__pointer_type_infoD0Ev                        
+00003d5f  _ZN10__cxxabiv119__pointer_type_infoD1Ev                        
+00003d5f  _ZN10__cxxabiv119__pointer_type_infoD2Ev                        
+00003d57  _ZN10__cxxabiv120__function_type_infoD0Ev                       
+00003d55  _ZN10__cxxabiv120__function_type_infoD1Ev                       
+00003d55  _ZN10__cxxabiv120__function_type_infoD2Ev                       
+00003d4d  _ZN10__cxxabiv120__si_class_type_infoD0Ev                       
+00003d4b  _ZN10__cxxabiv120__si_class_type_infoD1Ev                       
+00003d4b  _ZN10__cxxabiv120__si_class_type_infoD2Ev                       
+00003d43  _ZN10__cxxabiv121__vmi_class_type_infoD0Ev                      
+00003d41  _ZN10__cxxabiv121__vmi_class_type_infoD1Ev                      
+00003d41  _ZN10__cxxabiv121__vmi_class_type_infoD2Ev                      
+00003d39  _ZN10__cxxabiv123__fundamental_type_infoD0Ev                    
+00003d37  _ZN10__cxxabiv123__fundamental_type_infoD1Ev                    
+00003d37  _ZN10__cxxabiv123__fundamental_type_infoD2Ev                    
+00003d2f  _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev              
+00003d2d  _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev              
+00003d2d  _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev              
+00001e71  _ZN14Control_System6yawPIDEfPfS0_S0_fa                          
+000021d1  _ZN14Control_System7rollPIDEfPfS0_S0_fa                         
+00002035  _ZN14Control_System8pitchPIDEfPfS0_S0_fa                        
+000029b7  _ZN19communication_setup11HmC5983_i2cEv                         
+0000290f  _ZN19communication_setup11MPU6050_i2cEv                         
+00002c2d  _ZN19communication_setup11printStringEPc                        
+00002849  _ZN19communication_setup25i2c_Recover_from_bus_hangEv           
+00002a11  _ZN19communication_setup4UARTEv                                 
+00002b4d  _ZN19communication_setup5printEs                                
+00002c4d  _ZN19communication_setup7RecieveEPt                             
+00002b1b  _ZN19communication_setup8TransmitEt                             
+000016cd  _ZN4Gyro10set_offsetERKsS1_S1_                                  
+00001609  _ZN4Gyro3dirEc                                                  
+00004455  _ZN4GyroC1Ev                                                    
+00001569  _ZN5Accel3dirEc                                                 
+0000446d  _ZN5AccelC1Ev                                                   
+0000174d  _ZN5Magne3dirEc                                                 
+0000188b  _ZN5Magne5writeEht                                              
+00001849  _ZN5Magne8readDataEh                                            
+000018cf  _ZN5MagneC1Ev                                                   
+000018cf  _ZN5MagneC2Ev                                                   
+0000425d  _ZN5Timer15initilize_TimerEv                                    
+000013f5  _ZN6Config22Caliberate_Gyro_sensorEv                            
+000013c5  _ZN6Config7HMC5983Ev                                            
+000012dd  _ZN6Config7MPU6050Ev                                            
+00002547  _ZN6Filter17Tilt_compensationEfffffPf                           
+00002705  _ZN6Filter19ComplementaryFilterEsssPfS0_ssf                     
+0000266b  _ZN6Filter22Calculate_Yaw_FilteredEfsPf                         
+0000236d  _ZN6Filter24Euler_acceleromter_AngleEsssPsS0_                   
+000024c9  _ZN6Filter40Convert_Gyro_Rates_to_degrees_per_secondEsssPsS0_S0_
+000014e3  _ZN6Sensor5writeEht                                             
+00001527  _ZN6Sensor8readDataEh                                           
+00004485  _ZN6SensorC1Ev                                                  
+000044eb  _ZN6SensorC2Ev                                                  
+00001b81  _ZN9Actuators14PWM_adjustmentEffft                              
+00001929  _ZN9Actuators17PWM_initilizationEv                              
+000016f5  _ZNK4Gyro10get_offsetEc                                         
+00003cef  _ZNKSt9type_info4nameEv                                         
+00003d1f  _ZNKSt9type_info6beforeERKS_                                    
+00003d09  _ZNKSt9type_infoeqERKS_                                         
+00003cf3  _ZNKSt9type_infoneERKS_                                         
+00003ce7  _ZNSt9type_infoD0Ev                                             
+00003ce5  _ZNSt9type_infoD1Ev                                             
+00003ce5  _ZNSt9type_infoD2Ev                                             
+2000022c  _ZSt16__dummy_typeinfo                                          
+00003cdd  _ZSt21__gen_dummy_typeinfosv                                    
+00004758  _ZTI4Gyro                                                       
+00004764  _ZTI5Accel                                                      
+00004770  _ZTI5Magne                                                      
+000047b8  _ZTI6Sensor                                                     
+0000477c  _ZTIN10__cxxabiv117__class_type_infoE                           
+00004788  _ZTIN10__cxxabiv117__pbase_type_infoE                           
+00004794  _ZTIN10__cxxabiv119__pointer_type_infoE                         
+000047a0  _ZTIN10__cxxabiv120__si_class_type_infoE                        
+000047ac  _ZTIN10__cxxabiv123__fundamental_type_infoE                     
+000046f8  _ZTIPKe                                                         
+000047c0  _ZTISt9type_info                                                
+000047c8  _ZTIe                                                           
+000047e6  _ZTS4Gyro                                                       
+000047d8  _ZTS5Accel                                                      
+000047df  _ZTS5Magne                                                      
+000047d0  _ZTS6Sensor                                                     
+00004661  _ZTSN10__cxxabiv117__class_type_infoE                           
+00004683  _ZTSN10__cxxabiv117__pbase_type_infoE                           
+0000463d  _ZTSN10__cxxabiv119__pointer_type_infoE                         
+00004618  _ZTSN10__cxxabiv120__si_class_type_infoE                        
+000045f0  _ZTSN10__cxxabiv123__fundamental_type_infoE                     
+000047ec  _ZTSPKe                                                         
+00004748  _ZTSSt9type_info                                                
+000046a5  _ZTSe                                                           
+000046a8  _ZTV4Gyro                                                       
+000046bc  _ZTV5Accel                                                      
+000046d0  _ZTV5Magne                                                      
+000046e4  _ZTV6Sensor                                                     
+00004708  _ZTVN10__cxxabiv117__class_type_infoE                           
+00004718  _ZTVN10__cxxabiv119__pointer_type_infoE                         
+00004728  _ZTVN10__cxxabiv120__si_class_type_infoE                        
+00004738  _ZTVN10__cxxabiv123__fundamental_type_infoE                     
+00004503  _ZdlPv                                                          
+20000200  __STACK_END                                                     
+00000200  __STACK_SIZE                                                    
+20000200  __STACK_TOP                                                     
+00000008  __SYSMEM_SIZE                                                   
+0000482c  __TI_CINIT_Base                                                 
+0000483c  __TI_CINIT_Limit                                                
+00004824  __TI_Handler_Table_Base                                         
+0000482c  __TI_Handler_Table_Limit                                        
+00004115  __TI_auto_init                                                  
+20000200  __TI_cleanup_ptr                                                
+000044dd  __TI_decompress_none                                            
+00004511  __TI_decompress_rle24                                           
+20000204  __TI_dtors_ptr                                                  
+20000208  __TI_enable_exit_profile_output                                 
+ffffffff  __TI_pprof_out_hndl                                             
+ffffffff  __TI_prof_data_size                                             
+ffffffff  __TI_prof_data_start                                            
+00000000  __TI_static_base__                                              
+0000451d  __abort_execution                                               
+00003f8d  __aeabi_cdcmpeq                                                 
+00003f8d  __aeabi_cdcmple                                                 
+00004013  __aeabi_cdrcmple                                                
+00004185  __aeabi_d2f                                                     
+000043a5  __aeabi_d2iz                                                    
+0000359f  __aeabi_dadd                                                    
+000038bd  __aeabi_ddiv                                                    
+000039f3  __aeabi_dmul                                                    
+00003595  __aeabi_dsub                                                    
+000043ed  __aeabi_f2d                                                     
+00004425  __aeabi_i2d                                                     
+00004099  __aeabi_memclr                                                  
+00004099  __aeabi_memclr4                                                 
+00004099  __aeabi_memclr8                                                 
+00003ef1  __aeabi_memcpy                                                  
+00003ef1  __aeabi_memcpy4                                                 
+00003ef1  __aeabi_memcpy8                                                 
+0000409b  __aeabi_memset                                                  
+0000409b  __aeabi_memset4                                                 
+0000409b  __aeabi_memset8                                                 
+ffffffff  __binit__                                                       
+ffffffff  __c_args__                                                      
+00004517  __cxa_pure_virtual                                              
+0000374b  __mpu_init                                                      
+20000000  __stack                                                         
+0000449d  _args_main                                                      
+000042b1  _c_int00                                                        
+20000218  _lock                                                           
+000044c3  _nop                                                            
+000044bb  _register_lock                                                  
+000044b5  _register_unlock                                                
+20000230  _sys_memory                                                     
+00003aef  _system_post_cinit                                              
+00004521  _system_pre_init                                                
+2000021c  _unlock                                                         
+00004309  abort                                                           
+000030bd  atan                                                            
+000033a9  atan2                                                           
+000033a9  atan2l                                                          
+000030bd  atanl                                                           
+ffffffff  binit                                                           
+00003089  calloc                                                          
+00004359  copy_in                                                         
+000044c9  copysign                                                        
+000044c9  copysignl                                                       
+00003d99  cosf                                                            
+20000220  errno                                                           
+00004311  exit                                                            
+20000228  flag                                                            
+00002dd7  free                                                            
+00000000  g_pfnVectors                                                    
+00003af1  ldexp                                                           
+00003af1  ldexpl                                                          
+00000c79  main                                                            
+20000224  main_func_sp                                                    
+00002d6f  malloc                                                          
+00002fa5  memalign                                                        
+00003ef1  memcpy                                                          
+000040a1  memset                                                          
+00002ce1  minit                                                           
+0000026d  pow                                                             
+0000026d  powl                                                            
+00002e99  realloc                                                         
+00003af1  scalbn                                                          
+00003af1  scalbnl                                                         
+00003e4d  sinf                                                            
+0000374d  sqrt                                                            
+0000374d  sqrtl                                                           
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                                            
+-------   ----                                                            
+00000000  __TI_static_base__                                              
+00000000  g_pfnVectors                                                    
+00000008  __SYSMEM_SIZE                                                   
+00000200  __STACK_SIZE                                                    
+0000026d  pow                                                             
+0000026d  powl                                                            
+00000c19  UART1_Handler                                                   
+00000c79  main                                                            
+000012dd  _ZN6Config7MPU6050Ev                                            
+000013c5  _ZN6Config7HMC5983Ev                                            
+000013f5  _ZN6Config22Caliberate_Gyro_sensorEv                            
+000014e3  _ZN6Sensor5writeEht                                             
+00001527  _ZN6Sensor8readDataEh                                           
+00001569  _ZN5Accel3dirEc                                                 
+00001609  _ZN4Gyro3dirEc                                                  
+000016cd  _ZN4Gyro10set_offsetERKsS1_S1_                                  
+000016f5  _ZNK4Gyro10get_offsetEc                                         
+0000174d  _ZN5Magne3dirEc                                                 
+00001849  _ZN5Magne8readDataEh                                            
+0000188b  _ZN5Magne5writeEht                                              
+000018cf  _ZN5MagneC1Ev                                                   
+000018cf  _ZN5MagneC2Ev                                                   
+00001929  _ZN9Actuators17PWM_initilizationEv                              
+00001b81  _ZN9Actuators14PWM_adjustmentEffft                              
+00001e71  _ZN14Control_System6yawPIDEfPfS0_S0_fa                          
+00002035  _ZN14Control_System8pitchPIDEfPfS0_S0_fa                        
+000021d1  _ZN14Control_System7rollPIDEfPfS0_S0_fa                         
+0000236d  _ZN6Filter24Euler_acceleromter_AngleEsssPsS0_                   
+000024c9  _ZN6Filter40Convert_Gyro_Rates_to_degrees_per_secondEsssPsS0_S0_
+00002547  _ZN6Filter17Tilt_compensationEfffffPf                           
+0000266b  _ZN6Filter22Calculate_Yaw_FilteredEfsPf                         
+00002705  _ZN6Filter19ComplementaryFilterEsssPfS0_ssf                     
+00002849  _ZN19communication_setup25i2c_Recover_from_bus_hangEv           
+0000290f  _ZN19communication_setup11MPU6050_i2cEv                         
+000029b7  _ZN19communication_setup11HmC5983_i2cEv                         
+00002a11  _ZN19communication_setup4UARTEv                                 
+00002b1b  _ZN19communication_setup8TransmitEt                             
+00002b4d  _ZN19communication_setup5printEs                                
+00002c2d  _ZN19communication_setup11printStringEPc                        
+00002c4d  _ZN19communication_setup7RecieveEPt                             
+00002ce1  minit                                                           
+00002d6f  malloc                                                          
+00002dd7  free                                                            
+00002e99  realloc                                                         
+00002fa5  memalign                                                        
+00003089  calloc                                                          
+000030bd  atan                                                            
+000030bd  atanl                                                           
+000033a9  atan2                                                           
+000033a9  atan2l                                                          
+00003595  __aeabi_dsub                                                    
+0000359f  __aeabi_dadd                                                    
+0000374b  __mpu_init                                                      
+0000374d  sqrt                                                            
+0000374d  sqrtl                                                           
+000038bd  __aeabi_ddiv                                                    
+000039f3  __aeabi_dmul                                                    
+00003aef  _system_post_cinit                                              
+00003af1  ldexp                                                           
+00003af1  ldexpl                                                          
+00003af1  scalbn                                                          
+00003af1  scalbnl                                                         
+00003bed  SysCtlClockSet                                                  
+00003cdd  _ZSt21__gen_dummy_typeinfosv                                    
+00003ce5  _ZNSt9type_infoD1Ev                                             
+00003ce5  _ZNSt9type_infoD2Ev                                             
+00003ce7  _ZNSt9type_infoD0Ev                                             
+00003cef  _ZNKSt9type_info4nameEv                                         
+00003cf3  _ZNKSt9type_infoneERKS_                                         
+00003d09  _ZNKSt9type_infoeqERKS_                                         
+00003d1f  _ZNKSt9type_info6beforeERKS_                                    
+00003d2d  _ZN10__cxxabiv129__pointer_to_member_type_infoD1Ev              
+00003d2d  _ZN10__cxxabiv129__pointer_to_member_type_infoD2Ev              
+00003d2f  _ZN10__cxxabiv129__pointer_to_member_type_infoD0Ev              
+00003d37  _ZN10__cxxabiv123__fundamental_type_infoD1Ev                    
+00003d37  _ZN10__cxxabiv123__fundamental_type_infoD2Ev                    
+00003d39  _ZN10__cxxabiv123__fundamental_type_infoD0Ev                    
+00003d41  _ZN10__cxxabiv121__vmi_class_type_infoD1Ev                      
+00003d41  _ZN10__cxxabiv121__vmi_class_type_infoD2Ev                      
+00003d43  _ZN10__cxxabiv121__vmi_class_type_infoD0Ev                      
+00003d4b  _ZN10__cxxabiv120__si_class_type_infoD1Ev                       
+00003d4b  _ZN10__cxxabiv120__si_class_type_infoD2Ev                       
+00003d4d  _ZN10__cxxabiv120__si_class_type_infoD0Ev                       
+00003d55  _ZN10__cxxabiv120__function_type_infoD1Ev                       
+00003d55  _ZN10__cxxabiv120__function_type_infoD2Ev                       
+00003d57  _ZN10__cxxabiv120__function_type_infoD0Ev                       
+00003d5f  _ZN10__cxxabiv119__pointer_type_infoD1Ev                        
+00003d5f  _ZN10__cxxabiv119__pointer_type_infoD2Ev                        
+00003d61  _ZN10__cxxabiv119__pointer_type_infoD0Ev                        
+00003d69  _ZN10__cxxabiv117__pbase_type_infoD1Ev                          
+00003d69  _ZN10__cxxabiv117__pbase_type_infoD2Ev                          
+00003d6b  _ZN10__cxxabiv117__pbase_type_infoD0Ev                          
+00003d73  _ZN10__cxxabiv117__class_type_infoD1Ev                          
+00003d73  _ZN10__cxxabiv117__class_type_infoD2Ev                          
+00003d75  _ZN10__cxxabiv117__class_type_infoD0Ev                          
+00003d7d  _ZN10__cxxabiv117__array_type_infoD1Ev                          
+00003d7d  _ZN10__cxxabiv117__array_type_infoD2Ev                          
+00003d7f  _ZN10__cxxabiv117__array_type_infoD0Ev                          
+00003d87  _ZN10__cxxabiv116__enum_type_infoD1Ev                           
+00003d87  _ZN10__cxxabiv116__enum_type_infoD2Ev                           
+00003d89  _ZN10__cxxabiv116__enum_type_infoD0Ev                           
+00003d99  cosf                                                            
+00003e4d  sinf                                                            
+00003ef1  __aeabi_memcpy                                                  
+00003ef1  __aeabi_memcpy4                                                 
+00003ef1  __aeabi_memcpy8                                                 
+00003ef1  memcpy                                                          
+00003f8d  __aeabi_cdcmpeq                                                 
+00003f8d  __aeabi_cdcmple                                                 
+00004013  __aeabi_cdrcmple                                                
+00004099  __aeabi_memclr                                                  
+00004099  __aeabi_memclr4                                                 
+00004099  __aeabi_memclr8                                                 
+0000409b  __aeabi_memset                                                  
+0000409b  __aeabi_memset4                                                 
+0000409b  __aeabi_memset8                                                 
+000040a1  memset                                                          
+00004115  __TI_auto_init                                                  
+00004185  __aeabi_d2f                                                     
+0000425d  _ZN5Timer15initilize_TimerEv                                    
+000042b1  _c_int00                                                        
+00004305  C$$EXIT                                                         
+00004309  abort                                                           
+00004311  exit                                                            
+00004359  copy_in                                                         
+000043a5  __aeabi_d2iz                                                    
+000043ed  __aeabi_f2d                                                     
+00004425  __aeabi_i2d                                                     
+00004455  _ZN4GyroC1Ev                                                    
+0000446d  _ZN5AccelC1Ev                                                   
+00004485  _ZN6SensorC1Ev                                                  
+0000449d  _args_main                                                      
+000044b5  _register_unlock                                                
+000044bb  _register_lock                                                  
+000044c3  _nop                                                            
+000044c9  copysign                                                        
+000044c9  copysignl                                                       
+000044dd  __TI_decompress_none                                            
+000044eb  _ZN6SensorC2Ev                                                  
+000044f7  ResetISR                                                        
+00004503  _ZdlPv                                                          
+0000450b  SysCtlDelay                                                     
+00004511  __TI_decompress_rle24                                           
+00004517  __cxa_pure_virtual                                              
+0000451d  __abort_execution                                               
+00004521  _system_pre_init                                                
+000045f0  _ZTSN10__cxxabiv123__fundamental_type_infoE                     
+00004618  _ZTSN10__cxxabiv120__si_class_type_infoE                        
+0000463d  _ZTSN10__cxxabiv119__pointer_type_infoE                         
+00004661  _ZTSN10__cxxabiv117__class_type_infoE                           
+00004683  _ZTSN10__cxxabiv117__pbase_type_infoE                           
+000046a5  _ZTSe                                                           
+000046a8  _ZTV4Gyro                                                       
+000046bc  _ZTV5Accel                                                      
+000046d0  _ZTV5Magne                                                      
+000046e4  _ZTV6Sensor                                                     
+000046f8  _ZTIPKe                                                         
+00004708  _ZTVN10__cxxabiv117__class_type_infoE                           
+00004718  _ZTVN10__cxxabiv119__pointer_type_infoE                         
+00004728  _ZTVN10__cxxabiv120__si_class_type_infoE                        
+00004738  _ZTVN10__cxxabiv123__fundamental_type_infoE                     
+00004748  _ZTSSt9type_info                                                
+00004758  _ZTI4Gyro                                                       
+00004764  _ZTI5Accel                                                      
+00004770  _ZTI5Magne                                                      
+0000477c  _ZTIN10__cxxabiv117__class_type_infoE                           
+00004788  _ZTIN10__cxxabiv117__pbase_type_infoE                           
+00004794  _ZTIN10__cxxabiv119__pointer_type_infoE                         
+000047a0  _ZTIN10__cxxabiv120__si_class_type_infoE                        
+000047ac  _ZTIN10__cxxabiv123__fundamental_type_infoE                     
+000047b8  _ZTI6Sensor                                                     
+000047c0  _ZTISt9type_info                                                
+000047c8  _ZTIe                                                           
+000047d0  _ZTS6Sensor                                                     
+000047d8  _ZTS5Accel                                                      
+000047df  _ZTS5Magne                                                      
+000047e6  _ZTS4Gyro                                                       
+000047ec  _ZTSPKe                                                         
+00004824  __TI_Handler_Table_Base                                         
+0000482c  __TI_CINIT_Base                                                 
+0000482c  __TI_Handler_Table_Limit                                        
+0000483c  __TI_CINIT_Limit                                                
+20000000  __stack                                                         
+20000200  __STACK_END                                                     
+20000200  __STACK_TOP                                                     
+20000200  __TI_cleanup_ptr                                                
+20000204  __TI_dtors_ptr                                                  
+20000208  __TI_enable_exit_profile_output                                 
+20000218  _lock                                                           
+2000021c  _unlock                                                         
+20000220  errno                                                           
+20000224  main_func_sp                                                    
+20000228  flag                                                            
+2000022c  _ZSt16__dummy_typeinfo                                          
+20000230  _sys_memory                                                     
+ffffffff  __TI_pprof_out_hndl                                             
+ffffffff  __TI_prof_data_size                                             
+ffffffff  __TI_prof_data_start                                            
+ffffffff  __binit__                                                       
+ffffffff  __c_args__                                                      
+ffffffff  binit                                                           
+UNDEFED   SHT$$INIT_ARRAY$$Base                                           
+UNDEFED   SHT$$INIT_ARRAY$$Limit                                          
+
+[203 symbols]
